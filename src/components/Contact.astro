@@ -1,0 +1,106 @@
+---
+import { ContactForm } from "./ContactForm";
+import { SiInstagram, SiYoutube } from "react-icons/si";
+import { FaLinkedin } from "react-icons/fa";
+
+const socialLinks = [
+  {
+    name: "LinkedIn",
+    url: "https://linkedin.com/in/jeysonh-téllez-aguilar-0317e",
+    icon: FaLinkedin,
+    color: "hover:bg-blue-600 hover:text-white",
+    borderColor: "hover:border-blue-600",
+  },
+  {
+    name: "Instagram",
+    url: "https://instagram.com/im_saofish",
+    icon: SiInstagram,
+    color: "hover:bg-pink-600 hover:text-white",
+    borderColor: "hover:border-pink-600",
+  },
+  /* {
+    name: "YouTube",
+    url: "https://youtube.com/@tu-canal",
+    icon: SiYoutube,
+    color: "hover:bg-red-600 hover:text-white",
+    borderColor: "hover:border-red-600",
+  }, */
+];
+---
+
+<section id="contact" class="py-24 bg-white relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+    <div class="mb-16">
+      <h2
+        class="text-3xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight"
+      >
+        ¿Hablamos?
+      </h2>
+      <div class="w-24 h-2 bg-indigo-600 rounded-full mb-8"></div>
+      <p class="text-gray-500 text-xl max-w-2xl leading-relaxed">
+        Si tienes un proyecto en mente o simplemente quieres saludar, mi buzón
+        siempre está abierto.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      {/* Columna Formulario */}
+      <div class="order-2 lg:order-1">
+        <ContactForm client:visible />
+      </div>
+
+      {/* Columna Redes Sociales */}
+      <div class="order-1 lg:order-2 space-y-12">
+        <div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Mis Redes</h3>
+          <div class="flex flex-col gap-4">
+            {
+              socialLinks.map((social) => (
+                <a
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class={`group flex items-center justify-between p-4 border-2 border-gray-100 rounded-2xl transition-all duration-300 ${social.borderColor} ${social.color}`}
+                >
+                  <div class="flex items-center gap-4">
+                    <div class="p-3 bg-gray-50 rounded-xl group-hover:bg-white/20 transition-colors">
+                      <social.icon className="text-2xl" />
+                    </div>
+                    <span class="font-bold text-lg">{social.name}</span>
+                  </div>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6 opacity-0 group-hover:opacity-100 transition-opacity"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    />
+                  </svg>
+                </a>
+              ))
+            }
+          </div>
+        </div>
+
+        <div class="p-2 bg-indigo-50 rounded-2xl border border-indigo-100">
+          <h4 class="font-bold text-indigo-900 mb-2 italic">Dato curioso:</h4>
+          <p class="text-indigo-700/80 leading-relaxed">
+            Suelo responder en menos de 24 horas. ¡Anímate a escribirme!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* Decoración de fondo */}
+  <div
+    class="absolute top-1/2 -right-64 w-lg h-128 bg-indigo-50/50 rounded-full blur-3xl -z-10"
+  >
+  </div>
+</section>

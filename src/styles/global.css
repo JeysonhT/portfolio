@@ -1,0 +1,47 @@
+@import "tailwindcss";
+@import "@fontsource/roboto/400.css";
+@import "@fontsource/roboto/500.css";
+@import "@fontsource/roboto/700.css";
+
+@theme {
+  --font-roboto: "Roboto", sans-serif;
+  --color-primary: #4f46e5; /* Indigo-600 */
+  --color-bg-light: #ffffff;
+  --color-text-main: #111827; /* Gray-900 */
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-roboto);
+    @apply bg-white text-gray-900 antialiased selection:bg-indigo-100 selection:text-indigo-700;
+  }
+  
+  /* Evita que el header tape el inicio de la sección al navegar por IDs */
+  [id] {
+    scroll-margin-top: 100px;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-roboto);
+    @apply font-bold tracking-tight text-gray-900;
+  }
+}
+
+/* Utilidades personalizadas para tu estética minimalista en modo claro */
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-indigo-600 to-blue-700 bg-clip-text text-transparent;
+  }
+  
+  .border-minimal {
+    @apply border-gray-200 hover:border-indigo-500/30 transition-colors duration-300;
+  }
+
+  .card-minimal {
+    @apply bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300 rounded-xl;
+  }
+}

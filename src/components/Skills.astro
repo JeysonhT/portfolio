@@ -1,0 +1,24 @@
+---
+import { TechCarousel } from "./TechCarousel";
+---
+
+<section id="skills" class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 md:px-8">
+    <div class="mb-16">
+      <h2
+        class="text-3xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight"
+      >
+        Mis Habilidades
+      </h2>
+      <div class="w-24 h-2 bg-indigo-600 rounded-full mb-8"></div>
+      <p class="text-gray-500 text-xl max-w-2xl leading-relaxed">
+        Mi ecosistema tecnológico. Estas son las herramientas y lenguajes que
+        utilizo para dar vida a soluciones robustas y escalables.
+      </p>
+    </div>
+
+    <div class="max-w-full">
+      <TechCarousel client:visible />
+    </div>
+  </div>
+</section>

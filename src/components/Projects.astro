@@ -1,0 +1,75 @@
+---
+import { ProjectCard } from "./ProjectCard";
+
+const username = "JeysonhT";
+
+// Hacemos el fetch en tiempo de build (Server-side rendering)
+// Importante: Usamos el header de Accept para que nos devuelva los topics (mercy-preview)
+const response = await fetch(
+  `https://api.github.com/users/${username}/repos?sort=created&direction=desc&per_page=12`,
+  {
+    headers: {
+      Accept: "application/vnd.github.mercy-preview+json",
+    },
+  },
+);
+const repos = await response.json();
+
+// Filtramos para evitar forks y mostrar solo los que tengan descripción o topics para que se vean mejor
+const projects = Array.isArray(repos)
+  ? repos.filter((repo) => !repo.fork && repo.name !== username).slice(0, 6)
+  : [];
+---
+
+<section id="projects" class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 md:px-8">
+    <div class="mb-16">
+      <h2
+        class="text-3xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight"
+      >
+        Proyectos Destacados
+      </h2>
+      <div class="w-24 h-2 bg-indigo-600 rounded-full mb-8"></div>
+      <p class="text-gray-500 text-xl max-w-2xl leading-relaxed">
+        Echale un vistazo a algunos de mis trabajos y experimentos públicos.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      {
+        projects.map((project) => (
+          <ProjectCard
+            title={project.name}
+            description={project.description}
+            url={project.html_url}
+            stars={project.stargazers_count}
+            language={project.language}
+            topics={project.topics}
+            client:visible
+          />
+        ))
+      }
+    </div>
+
+    <div class="mt-20 text-center">
+      <a
+        href={`https://github.com/${username}`}
+        target="_blank"
+        class="inline-flex items-center gap-3 bg-gray-900 text-white px-8 py-4 rounded-xl font-bold hover:bg-indigo-600 transition-all duration-300 shadow-xl hover:shadow-indigo-200 group"
+      >
+        Explorar más en GitHub
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5 group-hover:translate-x-1 transition-transform"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+            clip-rule="evenodd"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
