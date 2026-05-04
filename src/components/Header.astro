@@ -1,4 +1,6 @@
 ---
+import portfolioIcon from "../assets/portfolioIcons.svg";
+
 const links = [
   { name: "Sobre mi", href: "#about" },
   {
@@ -20,9 +22,10 @@ const links = [
       <div class="shrink-0 flex items-center">
         <a
           href="/"
-          class="text-2xl font-bold text-gray-900 hover:text-indigo-600 transition-colors duration-300 tracking-tight"
+          class="text-2xl font-bold text-gray-900 hover:text-indigo-600 transition-colors duration-300 tracking-tight flex items-center gap-2"
         >
-          Jeysonh<span class="text-indigo-600">Dev</span>
+          <img src={portfolioIcon.src} alt="Logo" class="w-8 h-8" />
+          <span>Jeysonh<span class="text-indigo-600">Dev</span></span>
         </a>
       </div>
 
