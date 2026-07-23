@@ -1,46 +1,16 @@
-# Astro Starter Kit: Basics
+# Bienvenido al humilde repo de mi portafolio
 
-```sh
-npm create astro@latest -- --template basics
-```
+## 🛠️Con que esta creado mi portafolio y por que!?
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- Astro
+- React (Astro Islands)
 
-## 🚀 Project Structure
+### Por que Astro ?
 
-Inside of your Astro project, you'll see the following folders and files:
+Por que me permite renderizar html estatico de manera eficiente en el navegador.
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+Esto mejora los tiempos de carga para los que visitan mi portafolio.
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+### Por que React en islands ?
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Para unos cuantos componentes en los que requiero interactividad basica en los cuales requiero manejar estado en el cliente.
